@@ -8,9 +8,6 @@ on:
         required: false
         default: ''
         type: string
-  schedule:
-    # Build monthly on the 1st at 02:00 UTC for multi-arch images
-    - cron: "0 2 1 * *"
   push:
     tags:
       - 'v*.*.*'
@@ -23,7 +20,7 @@ env:
 jobs:
   build-matrix:
     name: Build Multi-Architecture Images
-    runs-on: ubuntu-latest
+    runs-on: self-hosted
     
     permissions:
       contents: read
